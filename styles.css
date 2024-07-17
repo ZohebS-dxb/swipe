@@ -1,0 +1,55 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Verdana, sans-serif;
+    background-image: url('background.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 100%;
+    padding: 10px;
+    text-align: center; /* Center align content within container */
+}
+
+.timer {
+    font-size: 7rem; /* Larger font size for timer */
+    font-weight: bold; /* Bold text */
+    color: Yellow; /* Yellow color */
+    margin-bottom: 20px; /* Space below timer */
+}
+
+.letter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 10px;
+}
+
+.letter-button {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.letter-button.red {
+    background-color: red !important; /* Ensure red color is applied */
+    color: black !important; /* Change text color for visibility */
+}
+
+.message {
+    font-size: 3rem; /* Larger font size for message */
+    font-weight: bold; /* Bold text */
+    color: white; /* White color */
+    margin-top: 20px; /* Space above message */
+    display: none; /* Initially hidden */
+}
