@@ -66,18 +66,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to toggle letter color
     function toggleLetterColor(button) {
-        if (button.style.backgroundColor === 'green') {
-            button.style.backgroundColor = 'red';
+        if (button.classList.contains('red')) {
+            button.classList.remove('red');
         } else {
-            button.style.backgroundColor = 'green';
+            button.classList.add('red');
         }
     }
 
     // Event listener for letter buttons
     letterButtons.forEach(button => {
-        button.style.backgroundColor = 'green';
         button.addEventListener('click', () => {
-            if (gameInProgress) {
+            if (gameInProgress && !button.classList.contains('red')) {
                 toggleLetterColor(button);
                 startTimer(activePlayer);
                 activePlayer = activePlayer % numPlayers + 1;
