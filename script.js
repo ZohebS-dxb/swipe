@@ -9,8 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const timers = [];
     const countdownElements = [];
+    const letterButtons = document.querySelectorAll('.letter-button');
 
-    // Initialize timers and countdown elements
+    // Initialize timers and countdown elements for each player
     for (let i = 1; i <= numPlayers; i++) {
         const timerElement = document.createElement('div');
         timerElement.className = 'timer';
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Event listener for letter buttons
-    document.querySelectorAll('.letter-button').forEach(button => {
+    letterButtons.forEach(button => {
         button.style.backgroundColor = 'green';
         button.addEventListener('click', () => {
             if (gameInProgress) {
