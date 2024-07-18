@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize timers for each player
     for (let i = 1; i <= numPlayers; i++) {
-        timers[i] = 90;
+        timers[i] = 9;
     }
 
     let timerIntervals = [];
