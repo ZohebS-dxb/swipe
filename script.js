@@ -11,19 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const countdownElements = [];
     const letterButtons = document.querySelectorAll('.letter-button');
 
-    // Initialize timers and countdown elements for each player
+    // Initialize timers for each player
     for (let i = 1; i <= numPlayers; i++) {
-        const timerElement = document.createElement('div');
-        timerElement.className = 'timer';
-        timerElement.textContent = `Player ${i} - `;
-        const countdownElement = document.createElement('span');
-        countdownElement.id = `timer${i}-countdown`;
-        countdownElement.textContent = '90';
-        timerElement.appendChild(countdownElement);
-        document.body.insertBefore(timerElement, gameOverElement);
-
         timers[i] = 90;
-        countdownElements[i] = countdownElement;
     }
 
     let timerIntervals = [];
@@ -39,16 +29,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(timerIntervals[i]);
             }
         }
-        countdownElements[player].textContent = timers[player];
+        displayActiveTimer(player);
         timerIntervals[player] = setInterval(() => {
             timers[player]--;
-            countdownElements[player].textContent = timers[player];
+            displayActiveTimer(player);
             if (timers[player] === 0) {
                 clearInterval(timerIntervals[player]);
-                gameOverMessage = `Player ${player} wins!`;
-                displayGameOver();
+                timers[player] = null; // Mark player as out
+                checkGameOver();
             }
         }, 1000);
+    }
+
+    // Function to display the active player's timer
+    function displayActiveTimer(player) {
+        const timerElement = document.querySelector('.timer');
+        if (timerElement) {
+            timerElement.textContent = `Player ${player} - ${timers[player]}`;
+        } else {
+            const newTimerElement = document.createElement('div');
+            newTimerElement.className = 'timer';
+            newTimerElement.textContent = `Player ${player} - ${timers[player]}`;
+            document.body.insertBefore(newTimerElement, gameOverElement);
+        }
+    }
+
+    // Function to check if the game is over
+    function checkGameOver() {
+        const activePlayers = timers.filter(timer => timer !== null);
+        if (activePlayers.length === 1) {
+            gameOverMessage = `Player ${timers.indexOf(activePlayers[0])} wins!`;
+            displayGameOver();
+        }
     }
 
     // Function to display "Game Over" message
@@ -79,8 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (gameInProgress && !button.classList.contains('red')) {
                 toggleLetterColor(button);
                 startTimer(activePlayer);
-                activePlayer = activePlayer % numPlayers + 1;
+                activePlayer = (activePlayer % numPlayers) + 1;
+                while (timers[activePlayer] === null) {
+                    activePlayer = (activePlayer % numPlayers) + 1;
+                }
             }
-        }, { once: true });
+        });
     });
 });
