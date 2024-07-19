@@ -6,6 +6,7 @@ body {
     margin: 0;
     font-family: Verdana, sans-serif;
     background-image: url('background.jpg'); /* Replace with your image path */
+  background-color:black;
     background-size: cover;
     background-position: center;
 }
@@ -17,10 +18,9 @@ body {
 }
 
 .timer {
-    font-size: 7rem; /* Larger font size for timer */
+    font-size: 2rem; /* Larger font size for timer */
     font-weight: bold; /* Bold text */
-    color: Yellow; /* Yellow color */
-    margin-bottom: 20px; /* Space below timer */
+    margin-bottom: 10px; /* Space below timer */
 }
 
 .letter-grid {
@@ -41,10 +41,7 @@ body {
     text-align: center;
 }
 
-.letter-button.red {
-    background-color: red !important; /* Ensure red color is applied */
-    color: black !important; /* Change text color for visibility */
-}
+
 
 .message {
     font-size: 3rem; /* Larger font size for message */
@@ -52,4 +49,29 @@ body {
     color: white; /* White color */
     margin-top: 20px; /* Space above message */
     display: none; /* Initially hidden */
+}
+
+.ranking {
+    font-size: 1rem; /* Larger font size for message */
+    font-weight: bold; /* Bold text */
+    color: white; /* White color */
+    margin-top: 10px; /* Space above message */
+    display: none; /* Initially hidden */
+}
+
+
+.letter-button.red {
+    background-color: red !important; /* Ensure red color is applied */
+    color: white !important; /* Change text color for visibility */
+}
+
+.player
+{
+    color : yellow;
+}
+
+.nonplayer
+{
+    color : #dad6d6;
+  
 }
