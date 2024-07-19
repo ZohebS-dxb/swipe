@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 */
 
     //Change game duration here
-    const max_time = 9;
+    const max_time = 90;
 
     var iDiv;
     var timer_seq;
