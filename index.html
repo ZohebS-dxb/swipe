@@ -8,13 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <!-- Timer displays will be added dynamically based on number of players -->
-        <div id="game-over" class="message">Game Over</div>
-        <audio id="gamesound" src="game.mp3" preload="auto"></audio>
+        <div id="timer-container">
 
-        <!-- Letter buttons for A-Z -->
+
+        </div>
+        <!--
+        <div id="timer1" class="timer">A - <span id="timer1-countdown">90</span></div>
+        <div id="timer2" class="timer">B - <span id="timer2-countdown">90</span></div>
+        <div id="timer3" class="timer">C - <span id="timer3-countdown">90</span></div>
+        <div id="timer4" class="timer">D - <span id="timer4-countdown">90</span></div>
+    -->
+        
         <div class="letter-grid">
-            <button class="letter-button" id="A">2</button>
+            <button class="letter-button" id="A">A</button>
             <button class="letter-button" id="B">B</button>
             <button class="letter-button" id="C">C</button>
             <button class="letter-button" id="D">D</button>
@@ -41,7 +47,10 @@
             <button class="letter-button" id="Y">Y</button>
             <button class="letter-button" id="Z">Z</button>
         </div>
-    </div>
+        <div id="game-over" class="message">Game Over</div>
+        <div id="ranking" class="ranking"></div>
+        <audio id="gamesound" src="game.mp3" preload="auto"></audio>
+        </div>
     <script src="script.js"></script>
 </body>
 </html>
