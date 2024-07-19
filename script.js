@@ -15,12 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameOverSound = document.getElementById('gamesound');
     const container = document.getElementById('timer-container');
 
-    //Get number of players from the query string
+  // Use prompt to ask the user for the number of players
+    var userInput = prompt("How many players?");
+    
+    // Convert the user input from string to integer using parseInt
+    var player_size = parseInt(userInput);
+  
+/*    //Get number of players from the query string
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     var player_size = urlParams.get('p');
     if(player_size == null){player_size=2;} //If p is not in the URl, set player size to 2
-
+*/
 
     //Change game duration here
     const max_time = 9;
@@ -168,13 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, { once: true });
     });
-
-
-
-
-
-
-    
+ 
 
 
 });
