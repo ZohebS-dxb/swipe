@@ -106,7 +106,7 @@ yesBtn.addEventListener('click', function() {
 noBtn.addEventListener('click', function() {
     if (gameRunning) {
         if (currentPlayer === 1) {
-            player1Time += 5;  // Add 5 seconds to Player 1's timer
+            player1Time += 3;  // Add 3 seconds to Player 1's timer
             player1TimerElement.textContent = `Player 1: ${player1Time}s`;
             clearInterval(player1Interval);  // Pause Player 1's timer
             player2Interval = setInterval(updatePlayer2Time, 1000);  // Start Player 2's timer
