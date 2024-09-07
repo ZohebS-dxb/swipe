@@ -24,6 +24,17 @@ function updatePlayer2Time() {
     player2TimerElement.textContent = `Player 2: ${player2Time}s`;
 }
 
+// Highlight the active player
+function highlightCurrentPlayer() {
+    if (currentPlayer === 1) {
+        player1TimerElement.style.color = "lightgreen"; // Active player font color
+        player2TimerElement.style.color = "darkgrey";  // Inactive player font color
+    } else {
+        player1TimerElement.style.color = "darkgrey";  // Inactive player font color
+        player2TimerElement.style.color = "lightgreen"; // Active player font color
+    }
+}
+
 // Start/Stop Game
 startBtn.addEventListener('click', function() {
     if (!gameRunning && startBtn.textContent === 'START') {
@@ -39,6 +50,7 @@ function startGame() {
     gameRunning = true;
     startBtn.textContent = 'STOP';
     currentPlayer = 1;
+    highlightCurrentPlayer(); // Highlight Player 1 as active
     player1Interval = setInterval(updatePlayer1Time, 1000);  // Start Player 1's timer
 }
 
@@ -58,6 +70,8 @@ function resetGame() {
     player2Time = 0;
     player1TimerElement.textContent = `Player 1: 0s`;
     player2TimerElement.textContent = `Player 2: 0s`;
+    player1TimerElement.style.backgroundColor = "";  // Reset background color
+    player2TimerElement.style.backgroundColor = "";  // Reset background color
     startBtn.textContent = 'START';  // Change RESET back to START
 }
 
@@ -73,6 +87,7 @@ yesBtn.addEventListener('click', function() {
             player1Interval = setInterval(updatePlayer1Time, 1000);  // Start Player 1's timer
             currentPlayer = 1;
         }
+        highlightCurrentPlayer();  // Update active/inactive player color
     }
 });
 
@@ -92,6 +107,6 @@ noBtn.addEventListener('click', function() {
             player1Interval = setInterval(updatePlayer1Time, 1000);  // Start Player 1's timer
             currentPlayer = 1;
         }
+        highlightCurrentPlayer();  // Update active/inactive player color
     }
 });
-
