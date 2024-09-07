@@ -22,18 +22,13 @@
         .buttons {
             display: flex;
             justify-content: space-around;
-            width: 300px;
+            width: 600px; /* Increase width to accommodate larger buttons */
         }
-        button {
-            padding: 20px;
-            font-size: 30px; /* Increase font size for tick and cross */
+        .yes-btn, .no-btn {
+            padding: 100px; /* Increase button size by 500% */
+            font-size: 150px; /* Increase icon size */
             border: none;
             cursor: pointer;
-        }
-        .start-btn, .stop-btn {
-            background-color: #ffcc00;
-            color: white;
-            margin-top: 20px;
         }
         .yes-btn {
             background-color: green;
@@ -42,6 +37,13 @@
         .no-btn {
             background-color: red;
             color: white;
+        }
+        .start-btn {
+            background-color: #ffcc00;
+            color: white;
+            margin-top: 20px;
+            padding: 20px; /* Keep original size */
+            font-size: 30px; /* Keep original size */
         }
         .timers {
             margin-top: 20px;
