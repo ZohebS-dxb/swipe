@@ -62,8 +62,19 @@ function stopGame() {
 
     // Determine the winner
     const winner = player1Time < player2Time ? 'Player 1' : 'Player 2';
+
+    // Only highlight the winner's timer
+    if (player1Time < player2Time) {
+        player1TimerElement.style.color = "lightgreen";  // Highlight Player 1 as winner
+        player2TimerElement.style.color = "";            // Reset Player 2's color
+    } else {
+        player2TimerElement.style.color = "lightgreen";  // Highlight Player 2 as winner
+        player1TimerElement.style.color = "";            // Reset Player 1's color
+    }
+
     alert(`${winner} wins!`);
 }
+
 
 function resetGame() {
     player1Time = 0;
